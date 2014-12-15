@@ -15,7 +15,6 @@ Send forward, side, and angular velocity commands to the Nao.
 """
 
 import lib.handlers.handlerTemplates as handlerTemplates
-
 class YouBotLocomotionCommandHandler(handlerTemplates.LocomotionCommandHandler):
     def __init__(self, executor, shared_data, velocityTopic='/cmd_vel'):
         """
