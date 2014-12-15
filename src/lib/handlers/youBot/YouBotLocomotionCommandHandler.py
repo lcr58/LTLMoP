@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import roslib; roslib.load_manifest('gazebo')
+import roslib;
 
 import rospy, math, subprocess, os, sys
 
