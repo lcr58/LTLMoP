@@ -2,8 +2,8 @@ RobotName: #Robot Name
 basic youbot
 
 Type: #Robot type
-
 youBot
+
 ActuatorHandler: #Robot default actuator handler with default argument values
 
 DriveHandler: # Robot default drive handler with default argument values
