@@ -23,10 +23,10 @@ class YouBotLocomotionCommandHandler(handlerTemplates.LocomotionCommandHandler):
         """
 	try:
 		#open a publisher for the topic
+		#youbot velocity topic is /cmd_vel
 		self.pub = rospy.Publisher(velocityTopic, Twist)
 		# initialize ros node
 		rospy.init_node("LTLMoP_control")
-		# for youBot, use /cmd_vel
 	except:
 		print 'Problem setting up Locomotion Command Node'
 
@@ -35,10 +35,15 @@ class YouBotLocomotionCommandHandler(handlerTemplates.LocomotionCommandHandler):
 	# and roll, pitch, yaw orientation velocities (x,y,z)
 
 	twist = Twist()
-	#Positive x is forward
+	#set x and y velocities, z is 0
 	twist.linear.x = cmd[0]
 	twist.linear.y = cmd[1]
-	twist.angular.z = 0.0
+	twist.linear.z = 0
+	
+	#set angular velocities to 0
+	twist.angular.x = 0
+	twist.angular.y = 0
+	twist.angular.z = 0
 
 	#publish command to robot
 	self.pub.publish(twist)
