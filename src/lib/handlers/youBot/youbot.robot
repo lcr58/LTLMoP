@@ -14,7 +14,7 @@ youBot.YouBotInitHandler()
 
 LocomotionCommandHandler: # Robot default locomotion command handler with default argument values
 youBot.YouBotLocomotionCommandHandler(velocityTopic="/cmd_vel")
-
+ 
 MotionControlHandler: # Robot default motion control handler with default argument values
 share.MotionControl.VectorControllerHandler()
 
