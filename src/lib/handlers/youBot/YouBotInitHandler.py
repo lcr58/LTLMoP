@@ -10,7 +10,7 @@ import os
 import lib.handlers.handlerTemplates as handlerTemplates
 
 class youBotInitHandler(handlerTemplates.InitHandler):
-    def __init__(self, executor, listenhost="10.0.0.128",listenport=11311):
+    def __init__(self, executor, listenhot="10.0.0.128",listenport=11311):
 	"""
         initialize youbot
         listenhost (string) ip address of youbot
