@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 """
-=======================================================
-holonomicDrive.py - Ideal Holonomic Point Drive Handler
-=======================================================
+========================================================================
+holonomicDrive.py - Ideal Holonomic Point Drive Handler (youbot version)
+========================================================================
 
 Passes velocity requests directly through.
 Used for ideal holonomic point robots.
 """
 
 import lib.handlers.handlerTemplates as handlerTemplates
+from math import copysign
 
 class HolonomicDriveHandler(handlerTemplates.DriveHandler):
     def __init__(self, executor, shared_data,multiplier,maxspeed):
@@ -30,9 +31,15 @@ class HolonomicDriveHandler(handlerTemplates.DriveHandler):
         self.max = maxspeed
 
     def setVelocity(self, x, y, theta=0):
-        x = min(x*self.mul,self.max)
-        y = min(y*self.mul,self.max)
+	m = max(abs(x),abs(y))
+	if m == 0:
+		m = 1
+
+	#print x,y,m
+        x = copysign(min(abs(x*self.mul*(self.max/m)),self.max),x)
+        y = copysign(abs(y*self.mul*(self.max/m)),y)
+
+	#print x,y
 
         #print "VEL:%f,%f" % tuple(self.coordmap([x, y]))
-        self.loco.sendCommand([x,y])
-
+        #self.loco.sendCommand([x,y])
