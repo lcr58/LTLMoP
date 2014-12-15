@@ -7,7 +7,7 @@ youBot
 ActuatorHandler: #Robot default actuator handler with default argument values
 
 DriveHandler: # Robot default drive handler with default argument values
-share.Drive.HolonomicDriveHandler(multiplier=0.01,maxspeed=0.1)
+share.Drive.HolonomicDriveHandler(multiplier=1.0,maxspeed=0.2)
 
 InitHandler: # Robot default init handler with default argument values
 youBot.YouBotInitHandler()
