@@ -11,7 +11,7 @@ from geometry_msgs.msg import Twist
 youBotLocomotionCommand.py - youBot Locomotion Command Handler
 ==================================================================
 
-Send forward, side, and angular velocity commands to the Nao.
+Send translational and longitudinal velocity commands to the youBot.
 """
 
 import lib.handlers.handlerTemplates as handlerTemplates
@@ -49,4 +49,3 @@ class YouBotLocomotionCommandHandler(handlerTemplates.LocomotionCommandHandler):
 	self.pub.publish(twist)
 
 	
-        #self.youbotInitHandler = shared_data['YOUBOT_INIT_HANDLER']
