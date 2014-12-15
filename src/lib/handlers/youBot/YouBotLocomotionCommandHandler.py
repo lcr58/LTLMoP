@@ -24,6 +24,7 @@ class YouBotLocomotionCommandHandler(handlerTemplates.LocomotionCommandHandler):
 	try:
 		#open a publisher for the topic
 		self.pub = rospy.Publisher(velocityTopic, Twist)
+		# initialize ros node
 		rospy.init_node("LTLMoP_control")
 		# for youBot, use /cmd_vel
 	except:
