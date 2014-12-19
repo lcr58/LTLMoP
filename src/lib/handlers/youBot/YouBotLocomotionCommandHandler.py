@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
-import roslib;
-
-import rospy, math, subprocess, os, sys
+import rospy, sys
 
 from geometry_msgs.msg import Twist
 
@@ -22,13 +20,13 @@ class YouBotLocomotionCommandHandler(handlerTemplates.LocomotionCommandHandler):
 	velocityTopic (str): The topic which handles velocities, /cmd_vel for the youBot.
         """
 	try:
-		#open a publisher for the topic
-		#youbot velocity topic is /cmd_vel
-		self.pub = rospy.Publisher(velocityTopic, Twist)
-		# initialize ros node
-		rospy.init_node("LTLMoP_control")
+	    #open a publisher for the topic
+    	    #youbot velocity topic is /cmd_vel
+	    self.pub = rospy.Publisher(velocityTopic, Twist)
+	    # initialize ros node
+	    rospy.init_node("LTLMoP_control")
 	except:
-		print 'Problem setting up Locomotion Command Node'
+	    print 'Problem setting up Locomotion Command Node'
 
     def sendCommand(self, cmd):
 	#Twist is the message type and consists of linear velocities x,y,z
