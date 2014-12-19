@@ -32,13 +32,13 @@ class HolonomicDriveHandler(handlerTemplates.DriveHandler):
 
     def setVelocity(self, x, y, theta=0):
     	#find max absolute value of x and y
-	m = max(abs(x),abs(y))
-	if m == 0:
+	m = max(abs(x*self.mul),abs(y*self.mul))
+	if m == 0.0:
 		m = 1
 
 	#scale x and y to values under the maximum allowed value
 	#this is for a multiplier value of 1
-        x = copysign(min(abs(x*self.mul*(self.max/m)),self.max),x)
-        y = copysign(min(abs(y*self.mul*(self.max/m)),self.max),y)
+        x = copysign(abs(x*self.mul*(self.max/m)),x)
+        y = copysign(abs(y*self.mul*(self.max/m)),y)
 
         self.loco.sendCommand([x,y])
